@@ -1,0 +1,41 @@
+{
+  "name": "mytrello_api",
+  "version": "0.0.1",
+  "description": "seample trello clone, test work",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node ./app.js",
+    "dev": "cross-env NODE_ENV=development nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrii-petlovanyi/mytrello_api.git"
+  },
+  "keywords": [
+    "trello",
+    "clone",
+    "trello"
+  ],
+  "author": "Andrii Petlovanyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrii-petlovanyi/mytrello_api/issues"
+  },
+  "homepage": "https://github.com/andrii-petlovanyi/mytrello_api#readme",
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.2",
+    "morgan": "^1.10.0"
+  }
+}
