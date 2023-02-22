@@ -1,4 +1,4 @@
-import { CustomError } from './index.js';
+import { CustomError } from "../helpers/errors.js";
 
 const errorsHandler = (error, req, res, next) => {
   if (error instanceof CustomError) {
