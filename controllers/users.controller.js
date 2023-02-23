@@ -1,4 +1,4 @@
-import { login, register } from "../services/users.services.js";
+import { login, logOut, register } from "../services/users.services.js";
 
 const loginCtrl = async (req, res) => {
   const body = req.body;
