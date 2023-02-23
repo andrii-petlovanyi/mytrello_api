@@ -33,7 +33,7 @@ const register = async ({ email, password, name }) => {
 };
 
 const logOut = async (id) => {
-  const user = await findByIdAndUpdate(
+  const user = await User.findByIdAndUpdate(
     id,
     { accessToken: null },
     { runValidators: true }
