@@ -32,4 +32,16 @@ const register = async ({ email, password, name }) => {
   return updated;
 };
 
-export { login, register };
+const logOut = async (id) => {
+  const user = await findByIdAndUpdate(
+    id,
+    { accessToken: null },
+    { runValidators: true }
+  );
+
+  if (!user) throw new NotAuthorizedError("Not authorized");
+
+  return;
+};
+
+export { login, register, logOut };

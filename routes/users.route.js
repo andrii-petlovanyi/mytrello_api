@@ -2,6 +2,7 @@ import express from "express";
 import {
   currentUserCtrl,
   loginCtrl,
+  logOutCtrl,
   registerCtrl,
 } from "../controllers/users.controller.js";
 import { checkJWT, wrapCtrl } from "../middlewares/index.js";
@@ -13,5 +14,6 @@ router.post("/register", wrapCtrl(registerCtrl));
 
 router.use(checkJWT);
 router.get("/current", wrapCtrl(currentUserCtrl));
+router.get("/logout", wrapCtrl(logOutCtrl));
 
 export { router as usersRouter };

@@ -31,4 +31,12 @@ const currentUserCtrl = async (req, res) => {
   });
 };
 
-export { loginCtrl, registerCtrl, currentUserCtrl };
+const logOutCtrl = async (req, res) => {
+  const { id } = req.user;
+
+  await logOut(id);
+
+  res.status(204).json();
+};
+
+export { loginCtrl, registerCtrl, currentUserCtrl, logOutCtrl };
