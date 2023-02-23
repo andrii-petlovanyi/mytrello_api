@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import logger from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
+// import path from "path";
+// import { fileURLToPath } from "url";
 
 import { errorsHandler } from "./middlewares/index.js";
 
@@ -24,6 +26,13 @@ app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/lists", listsRouter);
 app.use("/api/cards", cardsRouter);
+
+// const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// app.use(express.static(path.join(__dirname, "build")));
+// app.get("/*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
 
 app.use((_, res) => {
   res.status(404).json({ message: "Sorry, but this resource not found" });

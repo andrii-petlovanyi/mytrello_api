@@ -1,4 +1,4 @@
-import { ConflictError } from "../helpers/errors.js";
+import { ConflictError, NotAuthorizedError } from "../helpers/errors.js";
 import { generateJWT } from "../helpers/generateJWT.js";
 import { User } from "../models/user.model.js";
 

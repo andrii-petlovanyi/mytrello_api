@@ -2,8 +2,6 @@ import { CustomError } from "../helpers/errors.js";
 import { List } from "../models/list.model.js";
 
 const addList = async (body, userId) => {
-  console.log(body);
-
   const list = await List.create({ ...body, owner: userId });
 
   return list;
@@ -19,8 +17,13 @@ const removeList = async (listId) => {
   return;
 };
 
-const allLists = async () => {
-  const lists = await List.find().populate("cards");
+const allLists = async (sortBy) => {
+  const sortType = sortBy == "desc" ? 0 : -1;
+
+  const lists = await List.find().populate({
+    path: "cards",
+    options: { sort: { createdAt: sortType } },
+  });
 
   return lists;
 };

@@ -23,7 +23,8 @@ const removeListCtrl = async (req, res) => {
 };
 
 const allListsCtrl = async (req, res) => {
-  const lists = await allLists();
+  const { sortBy } = req.query;
+  const lists = await allLists(sortBy);
 
   res.status(200).json({
     lists,

@@ -1,9 +1,10 @@
 import { Card } from "../models/cards.model.js";
 import { List } from "../models/list.model.js";
 
-const addCard = async (card, listId, userId) => {
+const addCard = async (body, userId) => {
+  const { message, listId } = body;
   const newCard = await Card.create({
-    ...card,
+    message,
     owner: userId,
     list: listId,
   });

@@ -6,10 +6,10 @@ import {
 } from "../services/cards.services.js";
 
 const addCardCtrl = async (req, res) => {
-  const { listId, card } = req.body;
+  const body = req.body;
   const { id: userId } = req.user;
 
-  const newCard = await addCard(card, listId, userId);
+  const newCard = await addCard(body, userId);
 
   res.status(201).json({ message: "Card created!", newCard });
 };
@@ -29,7 +29,7 @@ const updateCardCtrl = async (req, res) => {
 
   const newCard = await updateCard(cardId, card, userId);
 
-  res.status(201).json({ message: "Card created!", newCard });
+  res.status(201).json({ message: "Card updated successfully!", newCard });
 };
 
 const moveCardCtrl = async (req, res) => {
