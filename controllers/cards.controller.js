@@ -11,7 +11,7 @@ const addCardCtrl = async (req, res) => {
 
   const newCard = await addCard(body, userId);
 
-  res.status(201).json({ message: "Card created!", newCard });
+  res.status(201).json({ message: "Card created successfully!", newCard });
 };
 
 const deleteCardCtrl = async (req, res) => {
@@ -25,9 +25,8 @@ const deleteCardCtrl = async (req, res) => {
 const updateCardCtrl = async (req, res) => {
   const card = req.body;
   const cardId = req.params.cardId;
-  const { id: userId } = req.user;
 
-  const newCard = await updateCard(cardId, card, userId);
+  const newCard = await updateCard(cardId, card);
 
   res.status(201).json({ message: "Card updated successfully!", newCard });
 };

@@ -15,10 +15,6 @@ const cardSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "List",
     },
-    updatedBy: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
   },
   { versionKey: false, timestamps: true }
 );

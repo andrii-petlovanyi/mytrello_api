@@ -6,11 +6,13 @@ import {
   registerCtrl,
 } from "../controllers/users.controller.js";
 import { checkJWT, wrapCtrl } from "../middlewares/index.js";
+import { reqValidation } from "../middlewares/reqValidation.js";
+import { loginSchema, registerSchema } from "../validation/user.validation.js";
 
 const router = express.Router();
 
-router.post("/login", wrapCtrl(loginCtrl));
-router.post("/register", wrapCtrl(registerCtrl));
+router.post("/login", reqValidation(loginSchema), wrapCtrl(loginCtrl));
+router.post("/register", reqValidation(registerSchema), wrapCtrl(registerCtrl));
 
 router.use(checkJWT);
 router.get("/current", wrapCtrl(currentUserCtrl));
